@@ -3,315 +3,42 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="DEGALA presenta Antes de Empezar. Descubre su música, vídeos y próximos conciertos.">
-  <title>DEGALA — Antes de Empezar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DEGALA | Antes de empezar</title>
+  <meta name="description" content="DEGALA — Antes de empezar.">
   <style>
-    :root {
-      --bg: #171715;
-      --cream: #f1eee7;
-      --muted: #bcb8af;
-      --yellow: #d5ad39;
-      --line: #393832;
+    * {
+      box-sizing: border-box;
     }
 
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100%;
+      background: #000;
+    }
 
     body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--cream);
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    .wrap {
-      width: min(1120px, 88%);
-      margin: 0 auto;
-    }
-
-    header {
-      min-height: 88px;
+      min-height: 100vh;
+      min-height: 100svh;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .logo {
-      font-size: 30px;
-      font-weight: 900;
-      letter-spacing: 5px;
-    }
-
-    nav {
-      display: flex;
-      gap: 25px;
-      flex-wrap: wrap;
-      font-size: 12px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-    }
-
-    nav a:hover { color: var(--yellow); }
-
-    .hero {
-      min-height: 76vh;
-      display: flex;
-      align-items: center;
-      padding: 90px 0;
-      background:
-        radial-gradient(ellipse at 80% 35%, #4a3c20 0%, transparent 42%),
-        linear-gradient(120deg, #171715 30%, #24221b 100%);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .eyebrow {
-      color: var(--yellow);
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      font-size: 12px;
-      font-weight: bold;
-    }
-
-    h1 {
-      font-size: clamp(56px, 10vw, 112px);
-      line-height: .95;
-      letter-spacing: -5px;
-      margin: 25px 0;
-      max-width: 900px;
-    }
-
-    h1 span { color: var(--yellow); }
-
-    .intro {
-      max-width: 510px;
-      color: var(--muted);
-      font-size: 18px;
-    }
-
-    .button {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 14px 22px;
-      background: var(--yellow);
-      color: #171715;
-      font-size: 12px;
-      font-weight: bold;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-    }
-
-    section { padding: 85px 0; }
-
-    .section-label {
-      color: var(--yellow);
-      font-size: 11px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-
-    h2 {
-      font-size: clamp(34px, 5vw, 54px);
-      line-height: 1.05;
-      margin: 12px 0 25px;
-      letter-spacing: -1.5px;
-    }
-
-    .copy {
-      color: var(--muted);
-      max-width: 650px;
-    }
-
-    .album {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 55px;
-      align-items: center;
-      margin-top: 35px;
-    }
-
-    .cover-placeholder {
-      aspect-ratio: 1 / 1;
-      background: #29271f;
-      border: 1px solid #494333;
-      display: flex;
-      align-items: center;
       justify-content: center;
-      text-align: center;
-      padding: 25px;
-      color: var(--yellow);
-      font-size: 28px;
-      font-weight: 900;
-      letter-spacing: 3px;
+      align-items: center;
+      overflow: hidden;
     }
 
-    .small-label {
-      color: var(--muted);
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .video-placeholder {
-      margin-top: 30px;
-      padding: 55px 25px;
-      border: 1px solid var(--line);
-      text-align: center;
-      color: var(--muted);
-    }
-
-    .video-placeholder strong {
+    img {
       display: block;
-      color: var(--cream);
-      font-size: 21px;
-      margin-bottom: 8px;
-    }
-
-    .contact {
-      background: #eae5d9;
-      color: #211f1a;
-    }
-
-    .contact .section-label { color: #8c6b13; }
-
-    .contact .copy { color: #5b574d; }
-
-    .contact a.email {
-      display: inline-block;
-      margin-top: 12px;
-      border-bottom: 1px solid #8c6b13;
-      font-size: 19px;
-    }
-
-    footer {
-      padding: 25px 0;
-      color: var(--muted);
-      font-size: 11px;
-      letter-spacing: 1px;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    @media (max-width: 700px) {
-      header {
-        align-items: flex-start;
-        flex-direction: column;
-        padding: 22px 0;
-      }
-
-      nav { gap: 14px; }
-
-      .hero { min-height: 65vh; padding: 70px 0; }
-
-      h1 { letter-spacing: -2px; }
-
-      .album { grid-template-columns: 1fr; gap: 25px; }
-
-      section { padding: 60px 0; }
+      width: 100%;
+      height: 100vh;
+      height: 100svh;
+      object-fit: contain;
+      object-position: center;
     }
   </style>
 </head>
 <body>
-  <header class="wrap">
-    <a class="logo" href="#inicio">DEGALA</a>
-    <nav aria-label="Navegación principal">
-      <a href="#musica">Música</a>
-      <a href="#directo">Directo</a>
-      <a href="#proyecto">Proyecto</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
-  </header>
-
-  <main>
-    <section class="hero" id="inicio">
-      <div class="wrap">
-        <div class="eyebrow">Una nueva etapa · Un primer álbum</div>
-        <h1>ANTES DE<br><span>EMPEZAR.</span></h1>
-        <p class="intro">
-          Canciones propias, rock y pop con personalidad.
-          Bienvenidos al universo de DEGALA.
-        </p>
-        <a class="button" href="#musica">Descubrir el álbum ↗</a>
-      </div>
-    </section>
-
-    <section id="musica">
-      <div class="wrap">
-        <div class="section-label">01 / Música</div>
-        <div class="album">
-          <div class="cover-placeholder">
-            DEGALA<br>ANTES DE EMPEZAR
-          </div>
-          <div>
-            <div class="small-label">Primer álbum</div>
-            <h2>Antes de Empezar</h2>
-            <p class="copy">
-              El comienzo de una nueva etapa musical. Un disco de canciones
-              que miran hacia delante sin olvidar todo lo vivido.
-            </p>
-            <!-- Añadiremos aquí el enlace oficial de Spotify -->
-            <p class="copy">Muy pronto podrás escuchar el álbum desde aquí.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="directo">
-      <div class="wrap">
-        <div class="section-label">02 / En directo</div>
-        <h2>Las canciones,<br>sobre el escenario.</h2>
-        <p class="copy">
-          La energía de DEGALA en directo. Música compartida sin filtros.
-        </p>
-        <div class="video-placeholder">
-          <strong>Live en Sol de Sants Studios</strong>
-          Añadiremos aquí el vídeo oficial.
-        </div>
-      </div>
-    </section>
-
-    <section id="proyecto">
-      <div class="wrap">
-        <div class="section-label">03 / El proyecto</div>
-        <h2>Una voz.<br>Una historia.<br>Un nuevo comienzo.</h2>
-        <p class="copy">
-          Después de su paso por La Voz y de una larga trayectoria sobre
-          los escenarios, DEGALA inicia una nueva etapa con Antes de Empezar,
-          un álbum que une la sensibilidad del pop con la fuerza del rock.
-        </p>
-      </div>
-    </section>
-
-    <section class="contact" id="contacto">
-      <div class="wrap">
-        <div class="section-label">04 / Contacto</div>
-        <h2>Hablemos.</h2>
-        <p class="copy">
-          Para contratación, prensa y cualquier consulta profesional,
-          ponte en contacto con el equipo de DEGALA.
-        </p>
-        <!-- Sustituiremos este texto por el email de contacto oficial -->
-        <p class="copy">Email de contacto próximamente.</p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap footer-inner">
-      <span>© DEGALA</span>
-      <span>ANTES DE EMPEZAR · MÚSICA EN DIRECTO</span>
-    </div>
-  </footer>
+  <img src="degala-poster.jpeg" alt="DEGALA — Antes de empezar">
 </body>
 </html>
